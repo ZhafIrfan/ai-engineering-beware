@@ -1,0 +1,12 @@
+# Section 1 — Requirements Specification — Beware
+Version: 1.0
+
+| # | Requirement — The system SHALL | Scope Boundary — SHALL NOT (where relevant) |
+|---|---|---|
+| **FR1** | Calculate a Buyer Return Risk Score (%) based on the buyer's past return frequency and reason history. | Block a return claim solely based on user profile without checking current claim evidence. |
+| **FR2** | Verify buyer item condition inputs (e.g., opened, used, missing seal) against official Shopee return eligibility rules. | Allow returns for items marked as used or unsealed when policy explicitly requires new condition. |
+| **FR3** | Retrieve relevant policy clauses from official Shopee documentation using a RAG pipeline. | Fabricate or guess return policy rules that are not present in the indexed documents. |
+| **FR4** | Automatically flag or reject high-risk return claims before refund approval. | Execute direct monetary transactions or wallet debits automatically. |
+| **FR5** | Provide explicit policy citations and reason codes for every evaluation decision made. | Present ungrounded decision outputs without linking to official policy sources. |
+
+---
