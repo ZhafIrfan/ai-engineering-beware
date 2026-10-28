@@ -1,0 +1,10 @@
+# Section 3 — Responsible AI Requirements
+
+| # | Responsible AI Risk | Requirement | Measurement Method | Metric | Threshold |
+|---|---|---|---|---|---|
+| **RAI1** | Bias & Unfairness | The system shall not unfairly penalize buyers who have multiple legitimate defect returns. | Test stratified claim sets comparing buyers with valid defect claims vs. policy abusers. | False rejection rate for valid claims | ≤ 5% |
+| **RAI2** | Safety / Scope | The system shall decline out-of-scope requests and avoid giving legal or financial advice. | Run a safety test set containing 20 out-of-scope user queries. | Refusal and redirect rate | ≥ 95% |
+| **RAI3** | Privacy | The system shall not log or transmit unanonymized Buyer Personally Identifiable Information (PII). | Inspect outgoing RAG payloads and database logs for PII exposure. | Number of detected PII leaks | 0 |
+| **RAI4** | Transparency | The system shall provide verifiable source citations for all policy evaluation outputs. | Inspect evaluation outputs for citation presence and source accuracy. | Citation presence rate; Citation match rate | 100% presence; ≥ 95% match |
+
+---
