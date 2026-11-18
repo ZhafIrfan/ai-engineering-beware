@@ -2,9 +2,7 @@
 
 | # | Quality Attribute | Requirement | Measurement Method | Metric | Threshold |
 |---|---|---|---|---|---|
-| **NFR1** | Performance | The system shall compute risk scores and evaluate return claims within the latency target. | Measure end-to-end processing time on a test set of 20 return claims. | p90 latency | < 3,000 ms |
-| **NFR2** | Correctness | Evaluation decisions and policy citations shall match ground-truth Shopee policy rules. | Evaluate test scenarios using a policy compliance rubric. | Correct response rate (%) | ≥ 85% |
-| **NFR3** | Reliability | The background evaluation service shall maintain operational availability during peak hours. | Record API endpoint uptime over evaluation runs. | System Uptime (%) | ≥ 99.5% |
-| **NFR4** | Maintainability | Updates to official Shopee policy documents shall be indexed without changing application code. | Run a controlled document update test with new policy markdown files. | Update re-indexing time | < 10 min |
-
----
+| **NFR1** | Performance | The system shall evaluate order return records and generate risk/sustainability outputs within the latency target. | Measure end-to-end processing time across 20 test order records. | p90 latency | < 3,000 ms |
+| **NFR2** | Correctness | Policy compliance decisions and risk classifications shall match ground-truth evaluation labels. | Score a curated evaluation set of 20 order scenarios using a defined rubric. | Correct evaluation rate (%) | ≥ 85% |
+| **NFR3** | Reliability | The evaluation pipeline shall process batch and single-order inputs without runtime failures. | Run repeated pipeline execution checks on the dataset. | Successful execution rate (%) | ≥ 99% |
+| **NFR4** | Maintainability | New policy PDFs or updated return datasets shall be indexed without modifying core application code. | Run a controlled document/data update test. | Update re-indexing time | < 10 min |
