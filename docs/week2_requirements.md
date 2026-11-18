@@ -1,20 +1,18 @@
 # Section 0 — Project Framing & Application Scope Checkpoint
 
-* **Problem Evidence:** Buyers select false return reasons to avoid paying return shipping fees, leaving sellers to cover costs (Source: Shopee Seller Education Hub — Return & Refund Shipping Fee Policy Guidelines). Merchants also suffer inventory loss from return fraud, item swapping, and auto-approved refunds executed before sellers can verify returned items (Source: E-Commerce Merchant Return Fraud Industry Reports).
-* **Existing Approaches:** 
-  1. Standard Shopee Return Request Flow — Auto-approves many claims without verifying if the item is opened/used or checking buyer return history.
-  2. Static Rule-Based Account Blocking — Treats all returning buyers the same, failing to distinguish fair defect claims from return abuse.
-  3. Unconstrained General AI Chatbots — High hallucination risk and lacks grounded knowledge of official marketplace return terms.
-* **Project / Engineering Gap:** Existing systems lack an automated gatekeeper that checks real-time buyer condition inputs and historical return reason patterns against official policy text to generate an auditable Buyer Risk Score (%).
-* **Objective O1:** To design an AI evaluation system that verifies item return eligibility (new/unused state) and tracks buyer return reason history.
-* **Objective O2:** To build a scoring algorithm and RAG pipeline that computes a Buyer Return Risk Score (%) grounded in official marketplace policies.
-* **Objective O3:** To evaluate the system on catching fraudulent return requests, answer accuracy, and safety across 20 test buyer claim scenarios.
-* **Intended Users:** Shopee sellers, marketplace risk control managers, and automated return processing systems.
-* **Supported Tasks:** Verifying item return condition rules, calculating buyer return abuse risk scores, retrieving official Shopee policy clauses, and flagging/blocking high-risk return claims.
-* **Information / Knowledge Domain:** Shopee Malaysia Buyer Refund and Return Policies, Seller Dispute & Evidence Submission Guides, and Return Eligibility Guidelines.
-* **Operating Context:** Embedded directly into the e-commerce return request pipeline as an automated background risk check.
-* **Important Constraints:** Must operate without introducing complex chat steps for buyers, relies on unstructured public policy documents, and must not store unanonymized personal data.
-* **Explicit Out-of-Scope Tasks:** The system SHALL NOT process financial payouts directly, mediate non-return customer service inquiries, or provide legal advice for court disputes.
-* **Evaluation Focus:** Determining whether the system accurately identifies fraudulent/unsupported return claims, correctly calculates risk scores, and grounds every decision in official policy clauses without hallucinations.
-
----
+* **Problem Evidence:** High return rates in e-commerce categories erode net profitability due to reverse logistics expenses (`Return_Cost`), while unnecessary reverse shipping increases carbon emissions (`CO2_Saved`) and physical waste (`Waste_Avoided`) (Source: E-Commerce Reverse Logistics Benchmark Report & Sustainable Supply Chain Guidelines).
+* **Existing Approaches:**
+  1. Static Rule-Based Return Portals — Approve claims based solely on fixed day windows without evaluating profit/loss or return abuse patterns.
+  2. Retroactive BI Analytics Dashboards — Track historical return rates and CO₂ metrics after losses occur, offering no real-time evaluation.
+  3. Unconstrained General AI Chatbots — Prone to hallucinating return rules and unable to process structured order records accurately.
+* **Project / Engineering Gap:** Current tools lack an integrated evaluation assistant that combines structured order risk/sustainability metrics with document-grounded return policy citations.
+* **Objective O1:** To design an AI evaluation assistant that validates order return eligibility (`Return_Reason`, `Days_to_Return`, `Product_Category`) against official return guidelines.
+* **Objective O2:** To build a RAG and risk-scoring pipeline that calculates a Return Risk Score (%), net `Profit_Loss` impact, and `CO2_Saved` / `Waste_Avoided` metrics.
+* **Objective O3:** To evaluate the system on accuracy, citation grounding, latency, and demographic fairness across 20 test return scenarios.
+* **Intended Users:** E-commerce operations managers, retail sellers, and supply chain/sustainability analysts.
+* **Supported Tasks:** Scoring return likelihood/risk, checking return window and reason compliance, estimating financial and environmental return impact, and citing policy clauses.
+* **Information / Knowledge Domain:** E-commerce return & refund policy documents, reverse logistics sustainability guidelines, and historical order/return records.
+* **Operating Context:** Operates as an automated background evaluation assistant within an e-commerce order management workflow.
+* **Important Constraints:** Must rely only on synthetic/anonymized data (`returns_sustainability_dataset.csv`) without real customer PII, and must ground policy explanations in indexed PDFs.
+* **Explicit Out-of-Scope Tasks:** The system SHALL NOT process payment refunds directly, provide legal counsel for consumer disputes, or alter live inventory databases.
+* **Evaluation Focus:** Verifying whether the system accurately predicts return risk, correctly calculates financial/CO₂ impact, avoids demographic bias, and cites valid policy clauses.
