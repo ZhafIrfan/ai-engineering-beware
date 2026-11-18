@@ -8,3 +8,4 @@ Version: 1.0
 | **FR3** | Retrieve relevant return and sustainability policy clauses from indexed PDF documents using a RAG pipeline. | Fabricate or guess policy rules not present in the approved source documents. |
 | **FR4** | Compute estimated net `Profit_Loss`, `Return_Cost`, `CO2_Saved`, and `Waste_Avoided` metrics for flagged return cases. | Execute direct financial refunds or payment gateway transactions automatically. |
 | **FR5** | Output structured evaluation reports (`Pass`, `Flag`, or `Reject`) with exact policy citations and sustainability impact summaries. | Present ungrounded decisions without linking to verifiable source documents. |
+ 
